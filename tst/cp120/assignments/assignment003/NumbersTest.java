@@ -7,9 +7,15 @@ import static org.junit.Assert.*;
 public class NumbersTest {
 
     @Test
-    public void testIsPrime(){
+    public void testIsPrimeNormal(){
         assertTrue(Numbers.isPrime(7));
-        assertFalse(Numbers.isPrime(8));
+        assertFalse(Numbers.isPrime(4));
+    }
+
+    @Test
+    public void testIsPrimeOneZero(){
+        assertFalse(Numbers.isPrime(1));
+        assertFalse(Numbers.isPrime(0));
     }
 
     @Test
