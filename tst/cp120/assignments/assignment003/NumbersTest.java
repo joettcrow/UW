@@ -4,8 +4,14 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/***
+ *
+ */
 public class NumbersTest {
 
+    /**
+     *
+     */
     @Test
     public void testIsPrimeNormal(){
         assertTrue(Numbers.isPrime(7));
@@ -52,6 +58,33 @@ public class NumbersTest {
         int leastMultiple = 18;
         int lcm = Numbers.lcm(param1, param2);
         assertEquals(lcm, leastMultiple);
+    }
+
+    @Test
+    public void testGcfZero(){
+        int param1 = 0;
+        int param2 = 16;
+        int greatestFactor = 0;
+        int gcf = Numbers.gcf(param1,param2);
+        assertEquals(gcf, greatestFactor);
+    }
+
+    @Test
+    public void testGcfFullSubset(){
+        int param1 = 8;
+        int param2 = 16;
+        int greatestFactor = 8;
+        int gcf = Numbers.gcf(param1,param2);
+        assertEquals(gcf, greatestFactor);
+    }
+
+    @Test
+    public void testGcfFullOne(){
+        int param1 = 7;
+        int param2 = 9;
+        int greatestFactor = 1;
+        int gcf = Numbers.gcf(param1,param2);
+        assertEquals(gcf, greatestFactor);
     }
 
 

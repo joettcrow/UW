@@ -25,10 +25,10 @@ public class Numbers {
      * Finds lowest common multiple for two numbers
      * @param param1 First non-negative integer number
      * @param param2 Second non-negative integer number
-     * @return The lowest common multiple of the provided numbers
+     * @return The lowest common multiple integer of the provided numbers
      */
     public static int lcm( int param1, int param2 ){
-        if (param2 == 0 || param1 == 0){
+        if (param1 == 0 || param2 == 0){
             return 0;
         }
         for (int i = 1; i < param2; i++) {
@@ -39,9 +39,23 @@ public class Numbers {
         return param1 * param2;
     }
 
-//    public static int gcf( int param1, int param2 ){
-//
-//    }
+    /***
+     * Finds the greatest common factor of two numbers
+     * @param param1 First non-negative integer number
+     * @param param2 Second non-negative integer number
+     * @return The greatest common factor integer of the provided numbers
+     */
+    public static int gcf( int param1, int param2 ){
+        if (param1 == 0 || param2 == 0){
+            return 0;
+        }
+        for (int i = param2; i > 1; i--){
+            if ((param1 % i == 0) && (param2 % i == 0)) {
+                return i;
+            }
+        }
+        return 1;
+    }
 
 
 }
