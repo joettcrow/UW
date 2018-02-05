@@ -87,5 +87,39 @@ public class NumbersTest {
         assertEquals(gcf, greatestFactor);
     }
 
+    @Test
+    public void testDigitSumSingle(){
+        int num = 7;
+        assertEquals(Numbers.digitSum(num), num);
+    }
+
+    @Test
+    public void testDigitSumLarge(){
+        int num = 123456789;
+        int sum = 45;
+        assertEquals(Numbers.digitSum(num), sum);
+    }
+
+    @Test
+    public void testMeanSame(){
+        double[] arr = { 1, 1, 1 };
+        double mean = 1;
+        assertEquals(Numbers.mean(arr), mean, 0.0);
+    }
+
+    @Test
+    public void testMeanZero(){
+        double[] arr = {-999999, 999999};
+        double mean = 0;
+        assertEquals(Numbers.mean(arr), mean, 0.0);
+    }
+
+    @Test
+    public void testMeanNormal(){
+        double[] arr = {3,4,5};
+        double mean = 4;
+        assertEquals(Numbers.mean(arr), mean, 0.0);
+    }
+
 
 }

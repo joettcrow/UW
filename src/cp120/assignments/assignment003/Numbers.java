@@ -1,5 +1,7 @@
 package cp120.assignments.assignment003;
 
+import java.lang.reflect.Array;
+
 /**
  * Collection of math functions
  */
@@ -21,7 +23,7 @@ public class Numbers {
         return true;
     }
 
-    /***
+    /**
      * Finds lowest common multiple for two numbers
      * @param param1 First non-negative integer number
      * @param param2 Second non-negative integer number
@@ -39,7 +41,7 @@ public class Numbers {
         return param1 * param2;
     }
 
-    /***
+    /**
      * Finds the greatest common factor of two numbers
      * @param param1 First non-negative integer number
      * @param param2 Second non-negative integer number
@@ -57,5 +59,32 @@ public class Numbers {
         return 1;
     }
 
+    /**
+     * Sums together all the digits in a number
+     * @param num Integer number with digits to sum
+     * @return Integer number that is the sume of digits
+     */
+    public static int digitSum(int num){
+        int x = 0;
+        for (String i : String.valueOf(num).split("(?!^)")) {
+            x = x + Integer.parseInt(i);
+        }
+        return x;
+    }
+
+    /**
+     * Calculates the mean of an array of numbers
+     * @param arr array of double values to find the mean of
+     * @return The mean as a double value
+     */
+    public static double mean(double[] arr){
+        double x = 0;
+        int count = 0;
+        for (double i: arr) {
+            x += i;
+            count +=1;
+        }
+        return x/count;
+    }
 
 }
