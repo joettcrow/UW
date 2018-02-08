@@ -1,6 +1,6 @@
 package cp120.misc;
 
-//import java.math.BigInteger;
+import java.math.BigInteger;
 
 import cp120.assignments.assignment003.Numbers;
 
@@ -30,11 +30,11 @@ public class NumbersDriver
         newLine();
         mean();
         newLine();
-//        median();
+        median();
         newLine();
-//        factorial();
+        factorial();
         newLine();
-//        factorialP();
+        factorialP();
     }
 
     /**
@@ -224,119 +224,119 @@ public class NumbersDriver
         System.out.println( bldr );
     }
 
-//    /**
-//     * Exercises Numbers.median().
-//     *
-//     * @see #median(double[])
-//     * @see Numbers#median(double[])
-//     */
-//    private static void median()
-//    {
-//        // The numbers in the comments are the expected values
-//        double[]    arr1    = { -1 }; // -1
-//        double[]    arr2    = { -2, 2 }; // 0
-//        double[]    arr3    = { -.1, -.3, -.2 }; // -.2
-//        double[]    arr4    = { -.5, .3, -.12, .6, -.8, 22 }; // .09
-//        double[]    arr5    = { 1, .5, -2.2, -.3, .5, -.4, 3.2 }; // 0.3286
-//        double[][]  allArrs = { arr1, arr2, arr3, arr4, arr5 };
-//
-//        for ( double[] arr : allArrs )
-//            median( arr );
-//    }
-//
-//    /**
-//     * Convenience routine to assist testing Numbers.median().
-//     * Calls Numbers.median() with the given array, and
-//     * prints the result.
-//     *
-//     * @param arr the given array
-//     *
-//     * @see #median()
-//     * @see Numbers#median(double[])
-//     */
-//    private static void median( double[] arr )
-//    {
-//        double          median      = Numbers.median( arr );
-//        String          strMedian   = String.format( "%5.4f", median );
-//        StringBuilder   bldr    = new StringBuilder( "median( " );
-//        bldr.append( arr[0] );
-//        for ( int inx = 1 ; inx < arr.length ; ++inx )
-//            bldr.append( ", " ).append( arr[inx] );
-//        bldr.append( " ): " ).append( strMedian );
-//        System.out.println( bldr );
-//    }
-//
-//    /**
-//     * Exercises Numbers.factorial( int ).
-//     *
-//     * @see #factorial(int)
-//     * @see Numbers#factorial(int)
-//     */
-//    private static void factorial()
-//    {
-//        // The numbers in the comments are the expected values
-//        int[]   nums    =
-//                {   0,   1,   2,   3,   5,
-//                        //   1    1    2    6    120
-//                        10,     20,     31 };
-//        //   3,628,800
-//        //           2,432,902,008,176,640,000
-//        //                   8,222,838,654,177,922,817,725,562,880,000,000
-//        for ( int num : nums )
-//            factorial( num );
-//    }
-//
-//    /**
-//     * Convenience routine to assist testing Numbers.factorial( int ).
-//     * Calls Numbers.factorial(int ) with the given number, and
-//     * prints the result.
-//     *
-//     * @param num   the given number
-//     *
-//     * @see #factorial()
-//     * @see Numbers#factorial(int)
-//     */
-//    private static void factorial( int num )
-//    {
-//        BigInteger  factorial   = Numbers.factorial( num );
-//        System.out.printf( "factorial( %2d ): %,d\n", num, factorial );
-//    }
-//
-//    /**
-//     * Exercises Numbers.factorial( BigInteger ).
-//     *
-//     * @see #factorial(BigInteger)
-//     * @see Numbers#factorial(BigInteger)
-//     */
-//    private static void factorialP()
-//    {
-//        int[]   nums    =
-//                {   0,   1,   2,   3,   5,
-//                        //   1    1    2    6    120
-//                        10,     20,     31 };
-//        //   3,628,800
-//        //           2,432,902,008,176,640,000
-//        //                   8,222,838,654,177,922,817,725,562,880,000,000
-//        for ( int num : nums )
-//        {
-//            BigInteger    bigNum  = BigInteger.valueOf( num );
-//            factorial( bigNum );
-//        }
-//    }
-//
-//    /**
-//     * Convenience routine to assist testing Numbers.factorial( BigInteger ).
-//     * Calls Numbers.factorial(BigInteger) with the given number, and
-//     * prints the result.
-//     *
-//     * @param num   the given number
-//     *
-//     * @see #factorial(BigInteger)
-//     * @see Numbers#factorial(BigInteger)
-//     */
-//    private static void factorial( BigInteger num )
-//    {
-//        BigInteger  factorial   = Numbers.factorial( num );
-//        System.out.printf( "factorial'( %2d ): %,d\n", num, factorial );
-//    }
+    /**
+     * Exercises Numbers.median().
+     *
+     * @see #median(double[])
+     * @see Numbers#median(double[])
+     */
+    private static void median()
+    {
+        // The numbers in the comments are the expected values
+        double[]    arr1    = { -1 }; // -1
+        double[]    arr2    = { -2, 2 }; // 0
+        double[]    arr3    = { -.1, -.3, -.2 }; // -.2
+        double[]    arr4    = { -.5, .3, -.12, .6, -.8, 22 }; // .09
+        double[]    arr5    = { 1, .5, -2.2, -.3, .5, -.4, 3.2 }; // 0.500
+        double[][]  allArrs = { arr1, arr2, arr3, arr4, arr5 };
+
+        for ( double[] arr : allArrs )
+            median( arr );
+    }
+
+    /**
+     * Convenience routine to assist testing Numbers.median().
+     * Calls Numbers.median() with the given array, and
+     * prints the result.
+     *
+     * @param arr the given array
+     *
+     * @see #median()
+     * @see Numbers#median(double[])
+     */
+    private static void median( double[] arr )
+    {
+        double          median      = Numbers.median( arr );
+        String          strMedian   = String.format( "%5.4f", median );
+        StringBuilder   bldr    = new StringBuilder( "median( " );
+        bldr.append( arr[0] );
+        for ( int inx = 1 ; inx < arr.length ; ++inx )
+            bldr.append( ", " ).append( arr[inx] );
+        bldr.append( " ): " ).append( strMedian );
+        System.out.println( bldr );
+    }
+
+    /**
+     * Exercises Numbers.factorial( int ).
+     *
+     * @see #factorial(int)
+     * @see Numbers#factorial(int)
+     */
+    private static void factorial()
+    {
+        // The numbers in the comments are the expected values
+        int[]   nums    =
+                {   0,   1,   2,   3,   5,
+                        //   1    1    2    6    120
+                        10,     20,     31 };
+        //   3,628,800
+        //           2,432,902,008,176,640,000
+        //                   8,222,838,654,177,922,817,725,562,880,000,000
+        for ( int num : nums )
+            factorial( num );
+    }
+
+    /**
+     * Convenience routine to assist testing Numbers.factorial( int ).
+     * Calls Numbers.factorial(int ) with the given number, and
+     * prints the result.
+     *
+     * @param num   the given number
+     *
+     * @see #factorial()
+     * @see Numbers#factorial(int)
+     */
+    private static void factorial( int num )
+    {
+        BigInteger  factorial   = Numbers.factorial( num );
+        System.out.printf( "factorial( %2d ): %,d\n", num, factorial );
+    }
+
+    /**
+     * Exercises Numbers.factorial( BigInteger ).
+     *
+     * @see #factorial(BigInteger)
+     * @see Numbers#factorial(BigInteger)
+     */
+    private static void factorialP()
+    {
+        int[]   nums    =
+                {   0,   1,   2,   3,   5,
+                        //   1    1    2    6    120
+                        10,     20,     31 };
+        //   3,628,800
+        //           2,432,902,008,176,640,000
+        //                   8,222,838,654,177,922,817,725,562,880,000,000
+        for ( int num : nums )
+        {
+            BigInteger    bigNum  = BigInteger.valueOf( num );
+            factorial( bigNum );
+        }
+    }
+
+    /**
+     * Convenience routine to assist testing Numbers.factorial( BigInteger ).
+     * Calls Numbers.factorial(BigInteger) with the given number, and
+     * prints the result.
+     *
+     * @param num   the given number
+     *
+     * @see #factorial(BigInteger)
+     * @see Numbers#factorial(BigInteger)
+     */
+    private static void factorial( BigInteger num )
+    {
+        BigInteger  factorial   = Numbers.factorial( num );
+        System.out.printf( "factorial'( %2d ): %,d\n", num, factorial );
+    }
 }

@@ -2,16 +2,12 @@ package cp120.assignments.assignment003;
 
 import org.junit.Test;
 
+import java.math.BigInteger;
+
 import static org.junit.Assert.*;
 
-/***
- *
- */
 public class NumbersTest {
 
-    /**
-     *
-     */
     @Test
     public void testIsPrimeNormal(){
         assertTrue(Numbers.isPrime(7));
@@ -119,6 +115,62 @@ public class NumbersTest {
         double[] arr = {3,4,5};
         double mean = 4;
         assertEquals(Numbers.mean(arr), mean, 0.0);
+    }
+
+    @Test
+    public void testMedianSingle(){
+        double[] arr = {99};
+        double median = 99;
+        assertEquals(Numbers.median(arr), median, 0.0);
+    }
+
+    @Test
+    public void testMedianAvgMiddle(){
+        double[] arr = {1,1,2,2};
+        double median = 1.5;
+        assertEquals(Numbers.median(arr), median, 0.0);
+    }
+
+    @Test
+    public void testMedianMiddle(){
+        double[] arr = {1,2,3};
+        double median = 2;
+        assertEquals(Numbers.median(arr), median, 0.0);
+    }
+
+    @Test
+    public void testFactorialIntZero(){
+        int num = 0;
+        BigInteger fact = BigInteger.ONE;
+        assertEquals(fact, Numbers.factorial(num));
+    }
+
+    @Test
+    public void testFactorialIntNormal(){
+        int num = 5;
+        BigInteger fact = BigInteger.valueOf(120);
+        assertEquals(fact, Numbers.factorial(num));
+    }
+
+    @Test
+    public void testFactorialBigZero(){
+        BigInteger num = BigInteger.ZERO;
+        BigInteger fact = BigInteger.ONE;
+        assertEquals(fact, Numbers.factorial(num));
+    }
+
+    @Test
+    public void testFactorialBigNormal(){
+        BigInteger num = BigInteger.valueOf(5);
+        BigInteger fact = BigInteger.valueOf(120);
+        assertEquals(fact, Numbers.factorial(num));
+    }
+
+    @Test
+    public void testFactorialBigHuge(){
+        BigInteger num = BigInteger.valueOf(12);
+        BigInteger fact = BigInteger.valueOf(479001600);
+        assertEquals(fact, Numbers.factorial(num));
     }
 
 

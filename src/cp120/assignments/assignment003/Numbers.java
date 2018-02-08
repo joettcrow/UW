@@ -1,15 +1,19 @@
 package cp120.assignments.assignment003;
 
 import java.lang.reflect.Array;
+import java.math.BigInteger;
+import  java.util.*;
 
 /**
  * Collection of math functions
+ *
+ * @author jcrowley
  */
 public class Numbers {
     /**
      * Calculates if the number provided is prime and returns true or false
      * @param num Non-negative integer number
-     * @return  true if number is prime, false if number is not prime
+     * @return  True if number is prime, false if number is not prime
      */
     public static boolean isPrime(int num){
         if (num == 0 || num == 1){
@@ -74,7 +78,7 @@ public class Numbers {
 
     /**
      * Calculates the mean of an array of numbers
-     * @param arr array of double values to find the mean of
+     * @param arr Array of double values to find the mean of
      * @return The mean as a double value
      */
     public static double mean(double[] arr){
@@ -86,5 +90,54 @@ public class Numbers {
         }
         return x/count;
     }
+
+    /**
+     * Finds the median for a given array
+     * @param arr Arrayed list of double we want the median of
+     * @return The median value as a double
+     */
+    public static double median(double[] arr){
+        Arrays.sort(arr);
+        double intermediate1 = Array.getLength(arr) + 1;
+        double intermediate2 = intermediate1/2;
+        double aboveMiddle = Math.ceil(intermediate2);
+        double belowMiddle = Math.floor(intermediate2);
+        double medianSum = arr[(int) (aboveMiddle-1)] + arr[(int) (belowMiddle-1)];
+        return medianSum/2;
+    }
+
+    /**
+     * Calculates the factorial for an integer
+     * @param num Integer to calculate factorial for
+     * @return The factorial as a big integer
+     */
+    public static BigInteger factorial( int num ){
+        if (num == 0){
+            return BigInteger.valueOf(1);
+        }
+        BigInteger x = BigInteger.valueOf(1);
+        for (int i = 1; i <= num; i++) {
+            x = x.multiply(BigInteger.valueOf(i));
+        }
+        return x;
+    }
+
+    /**
+     * Calculates the factorial for a big integer
+     * @param num Big integer to calculate factorial for
+     * @return The factorial as a big integer
+     */
+    public static BigInteger factorial( BigInteger num ){
+        if (num.equals(BigInteger.ZERO)){
+            return BigInteger.valueOf(1);
+        }
+        BigInteger x = BigInteger.ONE;
+        while (num.compareTo(BigInteger.ZERO) > 0){
+            x = x.multiply(num);
+            num = num.subtract(BigInteger.ONE);
+        }
+        return x;
+    }
+
 
 }
