@@ -4,9 +4,18 @@ import javax.swing.*;
 
 /**
  * @author jcrowley
+ * Utility class for checking numbers
  */
 
 public class Utils {
+    /**
+     * Asks the user to put an integer into the field
+     * Checks if it is between the provided values
+     * @param min integer for the minimum value
+     * @param max integer for the maximum value
+     * @return the integer the user entered that is between min and max
+     * @throws OpCanceledException returns nothing in this case
+     */
     public static int askInt( int min, int max )
     throws OpCanceledException
     {
