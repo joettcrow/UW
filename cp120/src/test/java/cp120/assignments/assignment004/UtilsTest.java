@@ -7,13 +7,14 @@ import javax.swing.*;
 import static org.junit.Assert.*;
 
 /**
+ * These are test, but they are not fully automated.
+ * The operator will need to follow the first dialog prompts
  * @author jcrowley
  */
-
 public class UtilsTest {
 
     @Test
-    public void testAskIntHappy() throws OpCanceledException {
+    public void askIntHappyTest() throws OpCanceledException {
         // For this the user needs to put in a the following invalid values
         // A letter, a value greater than the max and a value less than the min
         // Then they need to put in the right value
@@ -32,7 +33,7 @@ public class UtilsTest {
     }
 
     @Test
-    public void testOpCanceledException(){
+    public void opCanceledExceptionTest(){
         // For this the user needs to put in a the following invalid values
         // A letter, a value greater than the max and a value less than the min
         // Then they need to put in the right value
