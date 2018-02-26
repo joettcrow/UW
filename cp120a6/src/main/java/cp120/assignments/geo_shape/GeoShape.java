@@ -26,5 +26,5 @@ public abstract class GeoShape {
         this.color = color;
     }
 
-    public abstract void Draw(Graphics2D gtx);
+    public abstract void draw(Graphics2D gtx);
 }

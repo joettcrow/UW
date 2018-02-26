@@ -14,7 +14,7 @@ public class DNode {
     public DNode(Object data) {
         flink = this;
         blink = this;
-        this.data = this;
+        this.data = data;
     }
 
     public DNode() {

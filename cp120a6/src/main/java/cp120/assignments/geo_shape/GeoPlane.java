@@ -14,10 +14,35 @@ public class GeoPlane {
         list.addHead(new DNode(shape));
     }
 
-//    public boolean removeShape(GeoShape shape){
-//        for (:
-//             ) {
-//
-//        }
-//    }
+    public boolean removeShape(GeoShape shape){
+        boolean found = false;
+        if (list.isEmpty()){
+            return found;
+        }
+
+        DNode node = list.getHead();
+
+        do {
+            if (node.getData() == shape){
+                node.remove();
+                found = true;
+            }
+        }while (!found && (node.getNext() != node.getData()));
+        return found;
+    }
+
+    public void redraw() {
+        GeoShape shape;
+        DNode node = list.getTail();
+        if (list.isEmpty()){
+
+        }
+        else {
+            do {
+                node = node.getPrevious();
+                shape = (GeoShape) node.getData();
+                shape.draw(null);
+            } while (node.getPrevious() != node);
+        }
+    }
 }
