@@ -4,45 +4,51 @@ import cp120.d_list.DList;
 import cp120.d_list.DNode;
 
 /**
+ * A simple drawing surface for displaying GeoShapes.
  * @author jcrowley
  */
-
 public class GeoPlane {
-    private DList list    = new DList();
+    DList list = new DList();
 
+    /**
+     * Adds a shape to the list of shapes to be drawn on the plane.
+     * Note that the shape is not immediately drawn;
+     * to draw the shape immediately, call the redraw() method.
+     * @param shape the shape to add to the list
+     */
     public void addShape( GeoShape shape){
-        list.addHead(new DNode(shape));
+        list.addTail(new DNode(shape));
     }
 
+    /**
+     * Removes a shape from the list of shapes to be drawn on the plane.
+     * Note that the plane is not immediately redrawn;
+     * to redraw the plane immediately, call the redraw() method.
+     * @param shape the shape to remove from the list
+     * @return true, if shape is found and removed; false, otherwise
+     */
     public boolean removeShape(GeoShape shape){
         boolean found = false;
-        if (list.isEmpty()){
-            return found;
-        }
-
         DNode node = list.getHead();
-
-        do {
-            if (node.getData() == shape){
+        while (!found && (node != list)) {
+            if (node.getData() == shape) {
                 node.remove();
                 found = true;
             }
-        }while (!found && (node.getNext() != node.getData()));
+        }
         return found;
     }
 
+    /**
+     * Redraw the plane.
+     */
     public void redraw() {
         GeoShape shape;
-        DNode node = list.getTail();
-        if (list.isEmpty()){
-
-        }
-        else {
-            do {
-                node = node.getPrevious();
-                shape = (GeoShape) node.getData();
-                shape.draw(null);
-            } while (node.getPrevious() != node);
+        DNode node = list.getHead();
+        while (node != list) {
+            shape = (GeoShape) node.getData();
+            shape.draw(null);
+            node = node.getNext();
         }
     }
 }
