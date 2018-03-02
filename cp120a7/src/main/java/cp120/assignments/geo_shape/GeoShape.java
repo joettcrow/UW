@@ -13,6 +13,12 @@ public abstract class GeoShape {
     public static final GeoPoint DEFAULT_ORIGIN  = new GeoPoint( 0, 0 );
     public static final Color DEFAULT_COLOR = Color.BLUE;
 
+    /**
+     * Abstract constructor for GeoShape
+     * @param origin the origin for the shape as a GeoPoint
+     * @param color the color for the shape to be, can be null
+     * @throws IllegalArgumentException Exception if origin is null
+     */
     public GeoShape( GeoPoint origin, Color color) throws IllegalArgumentException{
         if (color != null){
             this.setColor(color);
@@ -63,7 +69,7 @@ public abstract class GeoShape {
     public abstract void draw(Graphics2D gtx);
 
     /**
-     * Overides the default tostring.
+     * Overides the default toString.
      * Formats the origin using GeoPoint to string
      * Formats the color to be in 6 digit hex notation
      * @return the origin and color for the shape.
@@ -98,49 +104,5 @@ public abstract class GeoShape {
         builder.append(colorHex);
         return builder.toString();
 
-    }
-
-    public static void main(String[] args) {
-        GeoPoint origin = new GeoPoint(10,10);
-        GeoShape shape1;
-        shape1 = new GeoShape(origin, Color.RED) {
-            @Override
-            public void draw(Graphics2D gtx) {
-
-            }
-        };
-        GeoShape shape2;
-        shape2 = new GeoShape(origin, Color.MAGENTA) {
-            @Override
-            public void draw(Graphics2D gtx) {
-
-            }
-        };
-        GeoShape shape3;
-        shape3 = new GeoShape(origin, Color.YELLOW) {
-            @Override
-            public void draw(Graphics2D gtx) {
-
-            }
-        };
-        GeoShape shape4;
-        shape4 = new GeoShape(origin, null) {
-            @Override
-            public void draw(Graphics2D gtx) {
-
-            }
-        };
-        GeoShape shape5;
-        shape5 = new GeoShape(origin, Color.BLUE) {
-            @Override
-            public void draw(Graphics2D gtx) {
-
-            }
-        };
-        System.out.println(shape1.toString());
-        System.out.println(shape2.toString());
-        System.out.println(shape3.toString());
-        System.out.println(shape4.toString());
-        System.out.println(shape5.toString());
     }
 }

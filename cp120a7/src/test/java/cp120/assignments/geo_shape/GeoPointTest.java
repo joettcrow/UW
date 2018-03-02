@@ -9,11 +9,14 @@ import static org.junit.Assert.*;
  */
 
 public class GeoPointTest {
+    private double x = 5;
+    private double y = 10;
+    GeoPoint origin = new GeoPoint(x,y);
 
     @Test
     public void setCoTest() {
-        double x = 5;
-        double y = 10;
+        x = 5;
+        y = 10;
         GeoPoint dave = new GeoPoint(1,1);
         dave.setXco(x);
         dave.setYco(y);
@@ -68,12 +71,5 @@ public class GeoPointTest {
         GeoPoint second = null;
         assertFalse(first.equals(second,.01));
     }
-
-//    @Test
-//    public void equalityNonClassTest(){
-//        GeoPoint first = new GeoPoint(1, 2);
-//        GeoOval second = new GeoOval();
-//        assertTrue(first.equals(second,.01));
-//    }
 
 }

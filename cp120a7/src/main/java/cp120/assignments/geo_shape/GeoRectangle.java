@@ -43,6 +43,7 @@ public class GeoRectangle extends GeoShape{
      * @param color the color of the shape
      * @param width the width of the rectangle
      * @param height the height of the rectangle
+     * @throws IllegalArgumentException if the origin is null
      */
     public GeoRectangle(
             GeoPoint origin,
@@ -108,28 +109,25 @@ public class GeoRectangle extends GeoShape{
      * Calculates the perimiter of the given rectangle
      * @return the rectangle's perimeter as a double
      */
-    public double perimiter(){
+    public double perimeter(){
         return height + height + width + width;
     }
 
+    /**
+     * Overrides the default toString.
+     * Formats the shape by calling the shape toString
+     * adds the width and height
+     * @return the shape and height at width as a String.
+     */
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        DecimalFormat df = new DecimalFormat("#.0000");
+        DecimalFormat df = new DecimalFormat("0.0000");
         df.setRoundingMode(RoundingMode.HALF_UP);
 
         builder.append(super.toString());
         builder.append(",width=" + df.format(width) + ",height=" + df.format(height));
 
         return builder.toString();
-    }
-
-    public static void main(String[] args) {
-        GeoPoint origin = new GeoPoint(10,10);
-        GeoRectangle rect = new GeoRectangle(origin, Color.BLACK, 20, 30);
-        System.out.println(rect.toString());
-        System.out.println(rect.area());
-        System.out.println(rect.perimiter());
-        rect.draw(null);
     }
 }

@@ -64,7 +64,7 @@ public class GeoPoint {
     public String toString() {
         StringBuilder builder = new StringBuilder();
 
-        DecimalFormat df = new DecimalFormat("#.0000");
+        DecimalFormat df = new DecimalFormat("0.0000");
         df.setRoundingMode(RoundingMode.HALF_UP);
 
         builder.append("(" + df.format(xco) + "," + df.format(yco) + ")");
@@ -85,9 +85,6 @@ public class GeoPoint {
         }
         else if (this == other){
             eql = true;
-        }
-        else if (!(other instanceof GeoPoint)){
-            eql = false;
         }
         else {
             double x = this.getXco();
