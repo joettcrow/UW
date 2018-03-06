@@ -77,11 +77,12 @@ public class DNode {
      * enqueued state.
      */
     public void addAfter (DNode node) throws java.lang.IllegalArgumentException{
-        node.blink = this;
-        node.flink = this.flink;
-        this.flink = node;
-        node.flink.blink = node;
-
+        if (!node.isEnqueued()) {
+            node.blink = this;
+            node.flink = this.flink;
+            this.flink = node;
+            node.flink.blink = node;
+        }
     }
 
     /**
@@ -93,10 +94,12 @@ public class DNode {
      * unenqueued state; if it is not, an exception will be thrown.
      */
     public void addBefore (DNode node) throws java.lang.IllegalArgumentException {
-        node.flink = this;
-        node.blink = this.blink;
-        this.blink = node;
-        node.blink.flink = node;
+        if (!node.isEnqueued()) {
+            node.flink = this;
+            node.blink = this.blink;
+            this.blink = node;
+            node.blink.flink = node;
+        }
     }
 
     /**

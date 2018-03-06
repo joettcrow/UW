@@ -109,4 +109,18 @@ public class GeoShapeTest{
         assertEquals(shape.toString(),val);
     }
 
+    @Test
+    public void setOriginNullTest(){
+        String err;
+        err = "java.lang.IllegalArgumentException: Origin cannot be null";
+        try {
+            shape.setOrigin(null);
+        }
+        catch (IllegalArgumentException exp){
+            assertEquals(exp.toString(), err);
+        }
+
+
+    }
+
 }

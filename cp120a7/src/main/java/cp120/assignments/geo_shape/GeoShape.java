@@ -42,7 +42,12 @@ public abstract class GeoShape {
      * @throws IllegalArgumentException if the new origin is null
      */
     public void setOrigin(GeoPoint origin) throws IllegalArgumentException {
-        this.origin = origin;
+        if (origin == null){
+            throw new IllegalArgumentException("Origin cannot be null");
+        }
+        else {
+            this.origin = origin;
+        }
     }
 
     /**

@@ -70,6 +70,7 @@ public class GeoOval extends GeoRectangle{
      * Draws this oval on a plane.
      * @param gtx the graphics context to use for drawing
      */
+    @Override
     public void draw (Graphics2D gtx){
         System.out.println("Drawing oval: " + toString());
     }
