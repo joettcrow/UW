@@ -148,7 +148,7 @@ public class DList extends DNode{
 
     /**
      * Indicates whether or not the list is empty.
-     * @return True if the list is empty, false otherwise.
+     * @return a Boolean value, True if the list is empty, false otherwise.
      */
     public boolean isEmpty(){
         return (getNext() == this) && (getPrevious() == this);
@@ -156,7 +156,7 @@ public class DList extends DNode{
 
     /**
      * Calculates the number of nodes in the list.
-     * @return The number of nodes in the list
+     * @return The number of nodes in the list as an int.
      */
     public int size(){
         int count = 0;

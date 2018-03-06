@@ -14,7 +14,7 @@ public class GeoPlane {
      * Adds a shape to the list of shapes to be drawn on the plane.
      * Note that the shape is not immediately drawn;
      * to draw the shape immediately, call the redraw() method.
-     * @param shape the shape to add to the list
+     * @param shape the GeoShape shape to add to the list.
      */
     public void addShape( GeoShape shape){
         list.addTail(new DNode(shape));
@@ -24,8 +24,8 @@ public class GeoPlane {
      * Removes a shape from the list of shapes to be drawn on the plane.
      * Note that the plane is not immediately redrawn;
      * to redraw the plane immediately, call the redraw() method.
-     * @param shape the shape to remove from the list
-     * @return true, if shape is found and removed; false, otherwise
+     * @param shape the GeoShape shape to remove from the list.
+     * @return boolean value, true, if shape is found and removed; false, otherwise.
      */
     public boolean removeShape(GeoShape shape){
         boolean found = false;

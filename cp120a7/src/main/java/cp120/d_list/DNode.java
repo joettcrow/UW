@@ -30,7 +30,7 @@ public class DNode {
 
     /**
      * Constructs a new node with the given data.  The node is constructed in the unenqueued state.
-     * @param data The given data
+     * @param data The given data.
      */
     public DNode(Object data) {
         flink = this;

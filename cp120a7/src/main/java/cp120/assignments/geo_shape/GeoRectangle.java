@@ -19,31 +19,31 @@ public class GeoRectangle extends GeoShape{
     private double height = 0;
 
     /**
-     * Constructs a rectangle when passed two values
-     * @param width the width of the rectangle
-     * @param height the height of the rectangle
+     * Constructs a rectangle when passed two values.
+     * @param width the width of the rectangle as a double.
+     * @param height the height of the rectangle as a double.
      */
     public GeoRectangle( double width, double height ){
         this(DEFAULT_ORIGIN, DEFAULT_COLOR, width, height);
     }
 
     /**
-     * Constructs a rectangle when passed three values
-     * @param origin the origin of the shape as a GeoPoint
-     * @param width the width of the rectangle
-     * @param height the height of the rectangle
+     * Constructs a rectangle when passed three values.
+     * @param origin the origin of the shape as a GeoPoint.
+     * @param width the width of the rectangle as a double.
+     * @param height the height of the rectangle as a double.
      */
     public GeoRectangle( GeoPoint origin, double width, double height ){
         this( origin, DEFAULT_COLOR, width, height );
     }
 
     /**
-     * Constructs a rectangle when passed four values
-     * @param origin the origin of the shape as a GeoPoint
-     * @param color the color of the shape
-     * @param width the width of the rectangle
-     * @param height the height of the rectangle
-     * @throws IllegalArgumentException if the origin is null
+     * Constructs a rectangle when passed four values.
+     * @param origin the origin of the shape as a GeoPoint.
+     * @param color the color of the shape as a Color.
+     * @param width the width of the rectangle as a double.
+     * @param height the height of the rectangle as a double.
+     * @throws IllegalArgumentException if the origin is null.
      */
     public GeoRectangle(
             GeoPoint origin,
@@ -59,7 +59,7 @@ public class GeoRectangle extends GeoShape{
 
     /**
      * Draws this rectangle on a plane.
-     * @param gtx the graphics context to use for drawing
+     * @param gtx the graphics context to use for drawing. Currently is undefined.
      */
     public void draw(Graphics2D gtx){
         System.out.println("Drawing rectangle: " + toString());
@@ -67,47 +67,47 @@ public class GeoRectangle extends GeoShape{
 
     /**
      * Gets the width of the rectangle.
-     * @return the width
+     * @return the width as a double.
      */
     public double getWidth() {
         return width;
     }
 
     /**
-     * Sets the width of the rectangle
-     * @param width the new width
+     * Sets the width of the rectangle.
+     * @param width the new width as a double.
      */
     public void setWidth(double width) {
         this.width = width;
     }
 
     /**
-     * Gets the height of the rectangle
-     * @return the height
+     * Gets the height of the rectangle.
+     * @return the height as a double.
      */
     public double getHeight() {
         return height;
     }
 
     /**
-     * Sets the height of the rectangle
-     * @param height the new height
+     * Sets the height of the rectangle.
+     * @param height the new height as a double.
      */
     public void setHeight(double height) {
         this.height = height;
     }
 
     /**
-     * Calculates the area of the given rectang'e
-     * @return the rectangle's area as a double
+     * Calculates the area of the given rectangle.
+     * @return the rectangle's area as a double.
      */
     public double area(){
         return width * height;
     }
 
     /**
-     * Calculates the perimiter of the given rectangle
-     * @return the rectangle's perimeter as a double
+     * Calculates the perimiter of the given rectangle.
+     * @return the rectangle's perimeter as a double.
      */
     public double perimeter(){
         return height + height + width + width;
@@ -115,8 +115,8 @@ public class GeoRectangle extends GeoShape{
 
     /**
      * Overrides the default toString.
-     * Formats the shape by calling the shape toString
-     * adds the width and height
+     * Formats the shape by calling the shape toString.
+     * adds the width and height.
      * @return the shape and height at width as a String.
      */
     @Override

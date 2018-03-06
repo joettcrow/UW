@@ -14,10 +14,10 @@ public abstract class GeoShape {
     public static final Color DEFAULT_COLOR = Color.BLUE;
 
     /**
-     * Abstract constructor for GeoShape
-     * @param origin the origin for the shape as a GeoPoint
-     * @param color the color for the shape to be, can be null
-     * @throws IllegalArgumentException Exception if origin is null
+     * Abstract constructor for GeoShape.
+     * @param origin the origin for the shape as a GeoPoint.
+     * @param color the color for the shape to be, can be null.
+     * @throws IllegalArgumentException Exception if origin is null.
      */
     public GeoShape( GeoPoint origin, Color color) throws IllegalArgumentException{
         if (color != null){
@@ -30,7 +30,7 @@ public abstract class GeoShape {
 
     /**
      * Gets the origin of the shape.
-     * @return the origin
+     * @return the origin.
      */
     public GeoPoint getOrigin() {
         return origin;
@@ -38,8 +38,8 @@ public abstract class GeoShape {
 
     /**
      * Sets the origin of the shape.
-     * @param origin the new origin
-     * @throws IllegalArgumentException if the new origin is null
+     * @param origin the new origin.
+     * @throws IllegalArgumentException if the new origin is null.
      */
     public void setOrigin(GeoPoint origin) throws IllegalArgumentException {
         if (origin == null){
@@ -52,7 +52,7 @@ public abstract class GeoShape {
 
     /**
      * Gets the color of the shape.
-     * @return the color
+     * @return the color as a Color value.
      */
     public Color getColor() {
         return color;
@@ -60,7 +60,7 @@ public abstract class GeoShape {
 
     /**
      * Sets the color.
-     * @param color the new color
+     * @param color the new color as a Color Value.
      */
     public void setColor(Color color) {
         this.color = color;
@@ -69,15 +69,15 @@ public abstract class GeoShape {
     /**
      * Draw a shape on a GeoPlane.
      * This is required to be implemented by every subclass of GeoShape.
-     * @param gtx the graphics context to use for drawing
+     * @param gtx the graphics context to use for drawing, currently is undefined.
      */
     public abstract void draw(Graphics2D gtx);
 
     /**
      * Overides the default toString.
-     * Formats the origin using GeoPoint to string
-     * Formats the color to be in 6 digit hex notation
-     * @return the origin and color for the shape.
+     * Formats the origin using GeoPoint to string.
+     * Formats the color to be in 6 digit hex notation.
+     * @return the origin and color for the shape as a String.
      */
     @Override
     public String toString() {

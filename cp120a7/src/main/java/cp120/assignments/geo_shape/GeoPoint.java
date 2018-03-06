@@ -13,9 +13,9 @@ public class GeoPoint {
     private double yco = 0;
 
     /**
-     * Constructor for the GeoPoint
-     * @param xco The x coordinate as a double value
-     * @param yco The y coordinate as a double value
+     * Constructor for the GeoPoint.
+     * @param xco The x coordinate as a double value.
+     * @param yco The y coordinate as a double value.
      */
     public GeoPoint(double xco, double yco){
         this.setXco(xco);
@@ -24,7 +24,7 @@ public class GeoPoint {
 
     /**
      * Gets the x-coordinate of this point.
-     * @return the x-coordinate of this point.
+     * @return the x-coordinate of this point as a double.
      */
     public double getXco() {
         return xco;
@@ -32,7 +32,7 @@ public class GeoPoint {
 
     /**
      * Sets the x-coordinate of this point.
-     * @param xco the new x-coordinate of this point
+     * @param xco the new x-coordinate of this point as a double.
      */
     public void setXco(double xco) {
         this.xco = xco;
@@ -40,7 +40,7 @@ public class GeoPoint {
 
     /**
      * Gets the y-coordinate of this point.
-     * @return the y-coordinate of this point.
+     * @return the y-coordinate of this point as a double.
      */
     public double getYco() {
         return yco;
@@ -48,16 +48,16 @@ public class GeoPoint {
 
     /**
      * Sets the y-coordinate of this point.
-     * @param yco the new y-coordinate of this point
+     * @param yco the new y-coordinate of this point as a double.
      */
     public void setYco(double yco) {
         this.yco = yco;
     }
 
     /**
-     * Overrides the base toString method
-     * Returns xcor and ycor formatted to 4 decimal places with remainder rounding up
-     * @return (xcor,yxor) rounded as described above
+     * Overrides the base toString method.
+     * Returns xcor and ycor formatted to 4 decimal places with remainder rounding up.
+     * @return (xcor,yxor) rounded as described above in String form.
      */
     @Override
     public String toString() {
@@ -72,10 +72,10 @@ public class GeoPoint {
     }
 
     /**
-     * Creates an equals method to test GeopPint equalities
-     * @param other The GeoPoint to compare against
-     * @param epsilon The amount that the comparison can be off by
-     * @return True if they are equal and false if they are now
+     * Creates an equals method to test GeopPint equalities.
+     * @param other The GeoPoint to compare against.
+     * @param epsilon The amount that the comparison can be off by as a Double.
+     * @return Boolean value, True if they are equal and false if they are not.
      */
     public Boolean equals( GeoPoint other, double epsilon){
         Boolean eql = false;
