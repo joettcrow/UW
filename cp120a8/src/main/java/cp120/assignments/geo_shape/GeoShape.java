@@ -1,6 +1,8 @@
 package cp120.assignments.geo_shape;
 
 import java.awt.*;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 /**
  * The class extended by all those classes that represent shapes to be drawn on a GeoPlane.
@@ -12,6 +14,54 @@ public abstract class GeoShape {
 
     public static final GeoPoint DEFAULT_ORIGIN  = new GeoPoint( 0, 0 );
     public static final Color DEFAULT_COLOR = Color.BLUE;
+    public static final Color DEFAULT_EDGE_COLOR = Color.BLUE;
+    public static final double DEFAULT_EDGE_WIDTH = 1;
+
+    private double edgeWidth = DEFAULT_EDGE_WIDTH;
+
+    private Color edgeColor = DEFAULT_EDGE_COLOR;
+
+    /**
+     * Retrieves the edgeWidth of the shape
+     * @return the width as a double
+     */
+    public double getEdgeWidth() {
+        return edgeWidth;
+    }
+
+    /**
+     * Sets the edgeWidth of the shape
+     * @param edgeWidth a double value for the edgeWidth
+     */
+    public void setEdgeWidth(double edgeWidth) {
+        this.edgeWidth = edgeWidth;
+    }
+
+    /**
+     * Retrieves the edgeColor for the shape
+     * @return the Color of the edge
+     */
+    public Color getEdgeColor() {
+        return edgeColor;
+    }
+
+    /**
+     * Sets the edge color for the shape
+     * @param edgeColor the Color to set the edge to
+     */
+    public void setEdgeColor(Color edgeColor) {
+        this.edgeColor = edgeColor;
+    }
+
+    /**
+     * Sets the edge values for the shape
+     * @param color the color to set the edge to
+     * @param width the width to set the edge to
+     */
+    public void	setEdge (Color color, double width){
+        setColor(color);
+        setEdgeWidth(width);
+    }
 
     /**
      * Abstract constructor for GeoShape.
@@ -79,30 +129,37 @@ public abstract class GeoShape {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         String colorHex;
+        color = getColor();
+        Color hexColor = getEdgeColor();
 
         builder.append("origin="+ this.origin.toString() + ",color=");
 
         if (color != null) {
-            colorHex = Integer.toHexString(color.getRGB() & 0xffffff);
-            if(colorHex.length() < 6)
-            {
-                if(colorHex.length()==5)
-                    colorHex = "0" + colorHex;
-                if(colorHex.length()==4)
-                    colorHex = "00" + colorHex;
-                if(colorHex.length()==3)
-                    colorHex = "000" + colorHex;
-                if(colorHex.length()==2)
-                    colorHex = "0000" + colorHex;
-                if(colorHex.length()==1)
-                    colorHex = "00000" + colorHex;
-            }
-            colorHex = "#" + colorHex;
+            colorHex = Integer.toHexString(color.getRGB());
+
+            colorHex = "#" + colorHex.substring(2);
         }
         else {
             colorHex = "null";
         }
         builder.append(colorHex);
+
+        builder.append(",edgeColor=");
+        if (color != null) {
+            colorHex = Integer.toHexString(hexColor.getRGB());
+
+            colorHex = "#" + colorHex.substring(2);
+        }
+        else {
+            colorHex = "null";
+        }
+        builder.append(colorHex);
+
+        DecimalFormat df = new DecimalFormat("0.0000");
+        df.setRoundingMode(RoundingMode.HALF_UP);
+        builder.append(",edgeWidth=");
+        builder.append(df.format(edgeWidth));
+
         return builder.toString();
 
     }

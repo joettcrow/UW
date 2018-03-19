@@ -62,7 +62,30 @@ public class GeoRectangle extends GeoShape{
      * @param gtx the graphics context to use for drawing. Currently is undefined.
      */
     public void draw(Graphics2D gtx){
-        System.out.println("Drawing rectangle: " + toString());
+//        System.out.println("Drawing rectangle: " + toString());
+        GeoPoint orig = this.getOrigin();
+        double x = orig.getXco();
+        double y = orig.getYco();
+        if (getColor() != null){
+            gtx.setColor(getColor());
+            gtx.fillRect(
+                    (int) x,
+                    (int) y,
+                    (int) getWidth(),
+                    (int) getHeight()
+            );
+        }
+        if (getEdgeColor() != null && getEdgeWidth() > 0){
+            Stroke stroke = new BasicStroke((float) getEdgeWidth());
+            gtx.setColor(getEdgeColor());
+            gtx.setStroke(stroke);
+            gtx.drawRect(
+                    (int) x,
+                    (int) y,
+                    (int) getWidth(),
+                    (int) getHeight()
+            );
+        }
     }
 
     /**
@@ -130,4 +153,5 @@ public class GeoRectangle extends GeoShape{
 
         return builder.toString();
     }
+
 }

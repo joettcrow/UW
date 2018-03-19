@@ -25,10 +25,8 @@ public class GeoShapeTest{
 
     @Test
     public void getColorTest() {
-        GeoPoint point = new GeoPoint(1,1);
         shape.setColor(Color.RED);
         assertEquals(Color.RED, shape.getColor());
-
     }
 
     @Test
@@ -50,14 +48,20 @@ public class GeoShapeTest{
 
     @Test
     public void toStringTest(){
-        String val = "origin=(1.0000,1.0000),color=#ff0000";
+        String val = "origin=(1.0000,1.0000)," +
+                "color=#ff0000," +
+                "edgeColor=#0000ff," +
+                "edgeWidth=1.0000";
         assertEquals(shape.toString(),val);
     }
 
     @Test
     public void toStringNullColorTest(){
         shape.setColor(null);
-        String val = "origin=(1.0000,1.0000),color=null";
+        String val = "origin=(1.0000,1.0000)," +
+                "color=null," +
+                "edgeColor=null," +
+                "edgeWidth=1.0000";
         assertEquals(shape.toString(),val);
     }
 
@@ -65,7 +69,10 @@ public class GeoShapeTest{
     public void toStringFiveDigitColorTest(){
         Color myBlue = new Color(15, 255, 255);
         shape.setColor(myBlue);
-        String val = "origin=(1.0000,1.0000),color=#0fffff";
+        String val = "origin=(1.0000,1.0000)," +
+                "color=#0fffff," +
+                "edgeColor=#0000ff," +
+                "edgeWidth=1.0000";
         assertEquals(shape.toString(),val);
     }
 
@@ -73,7 +80,10 @@ public class GeoShapeTest{
     public void toStringFourDigitColorTest(){
         Color myBlue = new Color(0, 255, 255);
         shape.setColor(myBlue);
-        String val = "origin=(1.0000,1.0000),color=#00ffff";
+        String val = "origin=(1.0000,1.0000)," +
+                "color=#00ffff," +
+                "edgeColor=#0000ff," +
+                "edgeWidth=1.0000";
         assertEquals(shape.toString(),val);
     }
 
@@ -81,7 +91,10 @@ public class GeoShapeTest{
     public void toStringThreeDigitColorTest(){
         Color myBlue = new Color(0, 15, 255);
         shape.setColor(myBlue);
-        String val = "origin=(1.0000,1.0000),color=#000fff";
+        String val = "origin=(1.0000,1.0000)," +
+                "color=#000fff," +
+                "edgeColor=#0000ff," +
+                "edgeWidth=1.0000";
         assertEquals(shape.toString(),val);
     }
 
@@ -89,7 +102,10 @@ public class GeoShapeTest{
     public void toStringTwoDigitColorTest(){
         Color myBlack = new Color(0, 0, 255);
         shape.setColor(myBlack);
-        String val = "origin=(1.0000,1.0000),color=#0000ff";
+        String val = "origin=(1.0000,1.0000)," +
+                "color=#0000ff," +
+                "edgeColor=#0000ff," +
+                "edgeWidth=1.0000";
         assertEquals(shape.toString(),val);
     }
 
@@ -97,7 +113,10 @@ public class GeoShapeTest{
     public void toStringOneDigitColorTest(){
         Color myBlack = new Color(0, 0, 15);
         shape.setColor(myBlack);
-        String val = "origin=(1.0000,1.0000),color=#00000f";
+        String val = "origin=(1.0000,1.0000)," +
+                "color=#00000f," +
+                "edgeColor=#0000ff," +
+                "edgeWidth=1.0000";
         assertEquals(shape.toString(),val);
     }
 
@@ -105,7 +124,10 @@ public class GeoShapeTest{
     public void toStringNoneDigitColorTest(){
         Color myBlack = new Color(0, 0, 0);
         shape.setColor(myBlack);
-        String val = "origin=(1.0000,1.0000),color=#000000";
+        String val = "origin=(1.0000,1.0000)," +
+                "color=#000000," +
+                "edgeColor=#0000ff," +
+                "edgeWidth=1.0000";
         assertEquals(shape.toString(),val);
     }
 
@@ -119,8 +141,22 @@ public class GeoShapeTest{
         catch (IllegalArgumentException exp){
             assertEquals(exp.toString(), err);
         }
+    }
 
+    @Test
+    public void setGetEdgeWidthTest(){
+        double edge = 5;
+        shape.setEdgeWidth(edge);
+        assertEquals(edge, shape.getEdgeWidth(),0.00);
+    }
 
+    @Test
+    public void setEdgeTest(){
+        double edge = 5;
+        Color colorEdge = Color.YELLOW;
+        shape.setEdge(colorEdge,edge);
+        assertEquals(edge,shape.getEdgeWidth(),0.00);
+        assertEquals(colorEdge,shape.getColor());
     }
 
 }

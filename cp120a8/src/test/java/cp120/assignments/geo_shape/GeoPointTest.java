@@ -72,4 +72,11 @@ public class GeoPointTest {
         assertFalse(first.equals(second,.01));
     }
 
+    @Test
+    public void nullOtherDistanceTest(){
+        GeoPoint other = null;
+        double dist = origin.distance(other);
+        assertEquals(0,dist,0.0);
+    }
+
 }

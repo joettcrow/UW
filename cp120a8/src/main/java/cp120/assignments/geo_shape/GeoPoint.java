@@ -55,6 +55,29 @@ public class GeoPoint {
     }
 
     /**
+     * Calculates the distance between two points
+     * @param other the other GeoPoint to calculate distance to
+     * @return the distance as a Double
+     */
+    public double distance( GeoPoint other ){
+        double dist = 0;
+        if (other == null){
+            dist = 0;
+        }
+        else {
+            double x1 = this.getXco();
+            double x2 = other.getXco();
+            double y1 = this.getYco();
+            double y2 = other.getYco();
+
+            double xDist = x1 - x2;
+            double yDist = y1 - y2;
+            dist = Math.sqrt(Math.pow(xDist,2) + Math.pow(yDist,2));
+        }
+        return dist;
+    }
+
+    /**
      * Overrides the base toString method.
      * Returns xcor and ycor formatted to 4 decimal places with remainder rounding up.
      * @return (xcor,yxor) rounded as described above in String form.
